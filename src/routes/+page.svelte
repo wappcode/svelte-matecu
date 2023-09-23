@@ -2,8 +2,26 @@
 	import MatecuTopbarLayout from '../lib/components/MatecuTopbarLayout.svelte';
 </script>
 
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div>
+	<h1>Matecu Topbar Layout</h1>
+	<!-- <div class="matecu-topbar-layout">a</div> -->
+	<MatecuTopbarLayout
+		--heigth="500px"
+		--width="500px"
+		--primary-color="red"
+		--border="1px solid blue"
+	/>
+</div>
 
-<MatecuTopbarLayout />
+<style lang="scss">
+	div {
+		border: 1px solid green;
+		min-height: 100vh;
+	}
+	.matecu-topbar-layout {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		border: 1px solid red;
+	}
+</style>
