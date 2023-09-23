@@ -10,6 +10,7 @@
 		--width="500px"
 		--primary-color="red"
 		--border="1px solid blue"
+		--body-padding="10px"
 	/>
 </div>
 
