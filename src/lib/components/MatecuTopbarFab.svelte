@@ -1,6 +1,12 @@
-<div class="matecu-topbar-fab">
-	<slot />
-</div>
+<script lang="ts">
+	export let display = true;
+</script>
+
+{#if display}
+	<div class="matecu-topbar-fab">
+		<slot />
+	</div>
+{/if}
 
 <style lang="scss">
 	.matecu-topbar-fab {

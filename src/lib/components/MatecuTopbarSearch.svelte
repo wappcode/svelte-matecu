@@ -1,13 +1,19 @@
-<div class="matecu-topbar-search">
-	<span class="matecu-topbar-search__icon matecu-topbar-search__icon--search">
-		<span class="material-symbols-outlined"> search </span>
-	</span>
-	<button class="matecu-topbar-search__icon matecu-topbar-search__icon--clear">
-		<span class="material-symbols-outlined"> close </span>
-	</button>
+<script lang="ts">
+	export let display = true;
+</script>
 
-	<input type="text" placeholder="Buscar" />
-</div>
+{#if display}
+	<div class="matecu-topbar-search">
+		<span class="matecu-topbar-search__icon matecu-topbar-search__icon--search">
+			<span class="material-symbols-outlined"> search </span>
+		</span>
+		<button class="matecu-topbar-search__icon matecu-topbar-search__icon--clear">
+			<span class="material-symbols-outlined"> close </span>
+		</button>
+
+		<input type="text" placeholder="Buscar" />
+	</div>
+{/if}
 
 <style lang="scss">
 	.matecu-topbar-search {

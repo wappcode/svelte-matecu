@@ -1,4 +1,10 @@
-<div class="matecu-topbar-title"><slot /></div>
+<script lang="ts">
+	export let display = true;
+</script>
+
+{#if display}
+	<div class="matecu-topbar-title"><slot /></div>
+{/if}
 
 <style lang="scss">
 	.matecu-topbar-title {
