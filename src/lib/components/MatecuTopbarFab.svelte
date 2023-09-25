@@ -10,6 +10,11 @@
 
 <style lang="scss">
 	.matecu-topbar-fab {
+		&,
+		* {
+			box-sizing: border-box;
+			outline: none;
+		}
 		display: flex;
 		align-items: flex-start;
 		transform: translateY(50%);

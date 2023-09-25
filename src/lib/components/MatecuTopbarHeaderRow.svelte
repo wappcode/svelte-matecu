@@ -31,6 +31,11 @@
 
 <style lang="scss">
 	.matecu-topbar-header-row {
+		&,
+		* {
+			box-sizing: border-box;
+			outline: none;
+		}
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;

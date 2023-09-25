@@ -8,6 +8,11 @@
 
 <style lang="scss">
 	.matecu-topbar-title {
+		&,
+		* {
+			box-sizing: border-box;
+			outline: none;
+		}
 		display: flex;
 		height: 100%;
 		align-items: center;

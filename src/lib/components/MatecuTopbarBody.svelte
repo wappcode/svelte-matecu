@@ -7,6 +7,11 @@
 
 <style lang="scss">
 	.matecu-topbar-body {
+		&,
+		* {
+			box-sizing: border-box;
+			outline: none;
+		}
 		padding: var(--body-padding, 30px);
 		background-color: var(--body-background, auto);
 		overflow-y: auto;
