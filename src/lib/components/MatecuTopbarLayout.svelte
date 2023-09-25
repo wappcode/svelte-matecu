@@ -1,6 +1,5 @@
 <script lang="ts">
 	export const scrollTop = () => {
-		console.log('scrolling matecu-topbar-body');
 		const element: HTMLElement | null = document.querySelector('.matecu-topbar-layout__body');
 		if (!element) {
 			return;
@@ -10,9 +9,10 @@
 			behavior: 'smooth'
 		});
 	};
+	export let prominent = false;
 </script>
 
-<div class="matecu-topbar-layout">
+<div class="matecu-topbar-layout" class:prominent>
 	<div class="matecu-topbar-layout__bar">
 		{#if $$slots['header-row-first']}
 			<slot name="header-row-first" />
@@ -47,16 +47,23 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: flex-start;
-			background-color: var(--primary-color, orangered);
-			height: var(--bar-height, 64px);
+			background-color: var(--primary-color, rgb(85, 0, 255));
+
 			width: 100%;
 			padding: 0px;
 			margin: 0px;
+			min-height: var(--bar-height, 64px);
+			transition: all 300ms;
 		}
 		&__body {
 			padding: 0px;
 			margin: 0px;
 			overflow-y: auto;
+		}
+		&.prominent {
+			.matecu-topbar-layout__bar {
+				min-height: var(--prominent-height, 128px);
+			}
 		}
 	}
 </style>

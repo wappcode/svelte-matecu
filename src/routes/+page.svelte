@@ -1,13 +1,15 @@
 <script lang="ts">
 	import MatecuTopbarAction from '../lib/components/MatecuTopbarAction.svelte';
 	import MatecuTopbarBody from '../lib/components/MatecuTopbarBody.svelte';
-	import MatecuTopbarColumn from '../lib/components/MatecuTopbarColumn.svelte';
+	import MatecuTopbarHeaderColumn from '../lib/components/MatecuTopbarHeaderColumn.svelte';
 	import MatecuTopbarHeaderRow from '../lib/components/MatecuTopbarHeaderRow.svelte';
 	import MatecuTopbarLayout from '../lib/components/MatecuTopbarLayout.svelte';
 	import MatecuTopbarSearch from '../lib/components/MatecuTopbarSearch.svelte';
 	import MatecuTopbarTitle from '../lib/components/MatecuTopbarTitle.svelte';
 
 	let scrollTop: () => void;
+	let dobuleRow = false;
+	let prominent = false;
 </script>
 
 <div>
@@ -19,108 +21,109 @@
 		--width="500px"
 		--primary-color="red"
 		--border="1px solid blue"
+		{prominent}
 		bind:scrollTop
 	>
 		<MatecuTopbarHeaderRow slot="header-row-first">
-			<MatecuTopbarColumn slot="left-column">
+			<MatecuTopbarHeaderColumn slot="left-column">
 				<MatecuTopbarAction>A</MatecuTopbarAction>
 				<MatecuTopbarAction>B</MatecuTopbarAction>
-				<MatecuTopbarTitle>Título de la página</MatecuTopbarTitle>
-			</MatecuTopbarColumn>
-			<MatecuTopbarColumn slot="right-column">
+				<MatecuTopbarTitle>El titulo de la página puede estar en dos lineas</MatecuTopbarTitle>
+			</MatecuTopbarHeaderColumn>
+			<MatecuTopbarHeaderColumn slot="right-column">
 				<MatecuTopbarSearch />
-				<MatecuTopbarAction>A</MatecuTopbarAction>
-				<MatecuTopbarAction>B</MatecuTopbarAction>
-			</MatecuTopbarColumn>
+				<MatecuTopbarAction>C</MatecuTopbarAction>
+				<MatecuTopbarAction>D</MatecuTopbarAction>
+			</MatecuTopbarHeaderColumn>
+		</MatecuTopbarHeaderRow>
+
+		<MatecuTopbarHeaderRow slot="header-row-second" display={dobuleRow}>
+			<MatecuTopbarHeaderColumn slot="left-column">
+				<MatecuTopbarAction>E</MatecuTopbarAction>
+				<MatecuTopbarAction>F</MatecuTopbarAction>
+			</MatecuTopbarHeaderColumn>
 		</MatecuTopbarHeaderRow>
 		<MatecuTopbarBody slot="body">
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto unde
-			aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
-			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing
-			elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis
-			unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum
-			dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit
-			veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam,
-			maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
-			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit
-			amet consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis
+			<div><label><input type="checkbox" bind:checked={dobuleRow} /> Dos filas</label></div>
+			<div><label><input type="checkbox" bind:checked={prominent} /> Prominente</label></div>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam.
+			Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam,
+			maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate
+			incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
+			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur,
+			adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis
+			unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor
+			sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis
 			odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+			Cupiditate incidunt architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa
+			iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
 			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
-			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
-			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
-			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt. Lorem ipsum dolor sit amet
-			consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam. Sit veritatis odit
-			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor
-			maxime sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt
-			architecto unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit
-			aspernatur placeat omnis magnam, maiores dolor maxime sunt.
+			recusandae, officiis unde ipsa iusto fugit aspernatur placeat omnis magnam, maiores dolor maxime
+			sunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto
+			unde aliquam. Sit veritatis odit recusandae, officiis unde ipsa iusto fugit aspernatur placeat
+			omnis magnam, maiores dolor maxime sunt.
 		</MatecuTopbarBody>
 	</MatecuTopbarLayout>
 </div>
 
 <style lang="scss">
-	div {
-		border: 1px solid green;
-		min-height: 100vh;
-	}
 </style>

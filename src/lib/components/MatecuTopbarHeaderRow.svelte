@@ -1,4 +1,5 @@
 <script lang="ts">
+	export let display = true;
 	export const scrollTop = () => {
 		console.log('scrolling matecu-topbar-body');
 		const element: HTMLElement | null = document.querySelector('.matecu-topbar-body');
@@ -12,19 +13,21 @@
 	};
 </script>
 
-<div class="matecu-topbar-header-row">
-	<div class="matecu-topbar-header-row__left-column">
-		{#if $$slots['left-column']}
-			<slot name="left-column" />
-		{/if}
-	</div>
+{#if display}
+	<div class="matecu-topbar-header-row">
+		<div class="matecu-topbar-header-row__left-column">
+			{#if $$slots['left-column']}
+				<slot name="left-column" />
+			{/if}
+		</div>
 
-	<div class="matecu-topbar-header-row__right-column">
-		{#if $$slots['right-column']}
-			<slot name="right-column" />
-		{/if}
+		<div class="matecu-topbar-header-row__right-column">
+			{#if $$slots['right-column']}
+				<slot name="right-column" />
+			{/if}
+		</div>
 	</div>
-</div>
+{/if}
 
 <style lang="scss">
 	.matecu-topbar-header-row {
@@ -34,7 +37,8 @@
 		border: 1px solid green;
 		box-sizing: border-box;
 		width: 100%;
-		height: var(--bar-height, 64px);
+		height: 100%;
+		min-height: var(--bar-height, 64px);
 		&__left-column {
 			display: flex;
 			height: 100%;
