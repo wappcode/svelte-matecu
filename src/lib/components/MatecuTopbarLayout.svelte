@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+	let layoutElement: HTMLElement | null | undefined;
 	let bodyElement: HTMLElement | null | undefined;
 	export let prominent = false;
 	let scrolled = false;
@@ -12,6 +14,7 @@
 			behavior: 'smooth'
 		});
 	};
+	const dispatchResize = createEventDispatcher();
 	const spyScroll = (scrollabe: HTMLElement) => {
 		if (!scrollabe) {
 			return;
@@ -25,23 +28,21 @@
 		scrolled = scrollPosition > 20;
 	};
 	onMount(() => {
-		if (!bodyElement) {
-			return;
-		}
-		bodyElement.addEventListener('scroll', (ev) => {
+		const resizeObserver = new ResizeObserver(() => {
+			dispatchResize('resize', { width: layoutElement?.clientWidth });
+		});
+		bodyElement!.addEventListener('scroll', (ev) => {
 			spyScroll(bodyElement!);
 		});
-	});
-
-	onDestroy(() => {
-		if (!bodyElement) {
-			return;
-		}
-		bodyElement.removeEventListener('scroll', () => {});
+		resizeObserver.observe(layoutElement!);
+		return () => {
+			bodyElement!.removeEventListener('scroll', () => {});
+			resizeObserver.disconnect();
+		};
 	});
 </script>
 
-<div class="matecu-topbar-layout" class:prominent class:scrolled>
+<div class="matecu-topbar-layout" class:prominent class:scrolled bind:this={layoutElement}>
 	<div class="matecu-topbar-layout__bar">
 		{#if $$slots['header-row-first']}
 			<slot name="header-row-first" />
