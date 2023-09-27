@@ -10,6 +10,10 @@
 	let scrollTop: () => void;
 	let dobuleRow = false;
 	let prominent = false;
+
+	const handleSearching = (event: any) => {
+		console.log('event searching', event);
+	};
 </script>
 
 <div>
@@ -31,7 +35,7 @@
 				<MatecuTopbarTitle>El titulo de la página puede estar en dos lineas</MatecuTopbarTitle>
 			</MatecuTopbarHeaderColumn>
 			<MatecuTopbarHeaderColumn slot="right-column">
-				<MatecuTopbarSearch />
+				<MatecuTopbarSearch on:valueChanges={handleSearching} />
 				<MatecuTopbarAction>C</MatecuTopbarAction>
 				<MatecuTopbarAction>D</MatecuTopbarAction>
 			</MatecuTopbarHeaderColumn>

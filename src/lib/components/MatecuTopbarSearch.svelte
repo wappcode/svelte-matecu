@@ -1,5 +1,20 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	export let display = true;
+	export let timeValueChanges = 300; // miliseconds
+
+	let searchValue: string;
+	let timeoutInstance: ReturnType<typeof setTimeout>;
+
+	const dispatch = createEventDispatcher();
+	const valueChanges = () => {
+		if (timeoutInstance) {
+			clearTimeout(timeoutInstance);
+		}
+		timeoutInstance = setTimeout(() => {
+			dispatch('valueChanges', { value: searchValue });
+		}, timeValueChanges);
+	};
 </script>
 
 {#if display}
@@ -11,7 +26,7 @@
 			<span class="material-symbols-outlined"> close </span>
 		</button>
 
-		<input type="text" placeholder="Buscar" />
+		<input type="text" placeholder="Buscar" bind:value={searchValue} on:input={valueChanges} />
 	</div>
 {/if}
 
@@ -31,7 +46,7 @@
 		input {
 			width: var(--search-width, 200px);
 			min-width: var(--search-width, 200px);
-			height: var(--search-heigth, 35px);
+			height: var(--search-heigth, 40px);
 			padding: var(--search-pading, 3px 35px);
 			border-radius: 4px;
 			border: 1px solid;
