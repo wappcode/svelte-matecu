@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	export let display = true;
 	export let timeValueChanges = 300; // miliseconds
+	export let placeholder = '';
 
 	let searchValue: string;
 	let timeoutInstance: ReturnType<typeof setTimeout>;
@@ -26,7 +27,7 @@
 			<span class="material-symbols-outlined"> close </span>
 		</button>
 
-		<input type="text" placeholder="Buscar" bind:value={searchValue} on:input={valueChanges} />
+		<input type="text" {placeholder} bind:value={searchValue} on:input={valueChanges} />
 	</div>
 {/if}
 

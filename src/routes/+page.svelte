@@ -35,7 +35,7 @@
 				<MatecuTopbarTitle>El titulo de la página puede estar en dos lineas</MatecuTopbarTitle>
 			</MatecuTopbarHeaderColumn>
 			<MatecuTopbarHeaderColumn slot="right-column">
-				<MatecuTopbarSearch on:valueChanges={handleSearching} />
+				<MatecuTopbarSearch on:valueChanges={handleSearching} placeholder="Buscando..." />
 				<MatecuTopbarAction>C</MatecuTopbarAction>
 				<MatecuTopbarAction>D</MatecuTopbarAction>
 			</MatecuTopbarHeaderColumn>
