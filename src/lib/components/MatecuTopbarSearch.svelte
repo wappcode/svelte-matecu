@@ -119,7 +119,7 @@
 		top: 0px;
 		left: 0px;
 		right: 0px;
-		border: 1px solid yellow;
+		border-bottom: 1px solid #333; // TODO: agregar variable para estilos
 		z-index: 3;
 		padding: 0px;
 		margin: 0px;
