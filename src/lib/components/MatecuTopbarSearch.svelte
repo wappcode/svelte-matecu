@@ -3,9 +3,12 @@
 	export let display = true;
 	export let timeValueChanges = 300; // miliseconds
 	export let placeholder = '';
+	export let movileStyle = false;
 
 	let searchValue: string;
 	let timeoutInstance: ReturnType<typeof setTimeout>;
+	let activeSearch = false;
+	$: showClearButton = searchValue?.length;
 
 	const dispatch = createEventDispatcher();
 	const valueChanges = () => {
@@ -16,22 +19,52 @@
 			dispatch('valueChanges', { value: searchValue });
 		}, timeValueChanges);
 	};
+	const clearSearch = () => {
+		searchValue = '';
+		activeSearch = false;
+	};
+	const toggleActiveSearch = () => {
+		activeSearch = !activeSearch;
+	};
 </script>
 
 {#if display}
-	<div class="matecu-topbar-search">
+	<button
+		class="matecu-topbar-search-mobile-only"
+		class:movile-style={movileStyle}
+		on:click={toggleActiveSearch}
+	>
+		<span class="material-symbols-outlined"> search </span>
+	</button>
+	<div class="matecu-topbar-search" class:movile-style={movileStyle} class:active={activeSearch}>
 		<span class="matecu-topbar-search__icon matecu-topbar-search__icon--search">
 			<span class="material-symbols-outlined"> search </span>
 		</span>
-		<button class="matecu-topbar-search__icon matecu-topbar-search__icon--clear">
-			<span class="material-symbols-outlined"> close </span>
-		</button>
-
+		{#if showClearButton || movileStyle}
+			<button
+				class="matecu-topbar-search__icon matecu-topbar-search__icon--clear"
+				on:click={clearSearch}
+			>
+				<span class="material-symbols-outlined"> close </span>
+			</button>
+		{/if}
 		<input type="text" {placeholder} bind:value={searchValue} on:input={valueChanges} />
 	</div>
 {/if}
 
 <style lang="scss">
+	$search-text-color: #fff;
+
+	.matecu-topbar-search-mobile-only {
+		display: none;
+		border: none;
+		background: none;
+		cursor: pointer;
+		color: var(--search-text-color, $search-text-color);
+		&.movile-style {
+			display: block;
+		}
+	}
 	.matecu-topbar-search {
 		&,
 		* {
@@ -41,7 +74,7 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		color: var(--search-text-color, #fff);
+		color: var(--search-text-color, $search-text-color);
 		max-height: var(--bar-height, 64px);
 
 		input {
@@ -56,7 +89,7 @@
 			color: currentColor;
 			transition: all 300ms ease-in-out;
 			&::placeholder {
-				color: var(--search-text-color, #fff);
+				color: var(--search-text-color, $search-text-color);
 				opacity: 1; /* Firefox */
 			}
 			&:focus {
@@ -78,6 +111,32 @@
 				cursor: pointer;
 				color: currentColor;
 				right: 6px;
+			}
+		}
+	}
+	.movile-style.matecu-topbar-search {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		border: 1px solid yellow;
+		z-index: 3;
+		padding: 0px;
+		margin: 0px;
+		height: 64px;
+		color: #333;
+		transform: translateY(-120%);
+		transition: all 300ms ease-in-out;
+		&.active {
+			transform: translateY(0);
+		}
+		input {
+			background-color: #fff;
+			height: 100%;
+			width: 100%;
+			border-radius: 0px;
+			&::placeholder {
+				color: #333;
 			}
 		}
 	}
