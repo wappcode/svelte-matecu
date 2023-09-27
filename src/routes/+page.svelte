@@ -1,6 +1,7 @@
 <script lang="ts">
 	import MatecuTopbarAction from '../lib/components/MatecuTopbarAction.svelte';
 	import MatecuTopbarBody from '../lib/components/MatecuTopbarBody.svelte';
+	import MatecuTopbarFab from '../lib/components/MatecuTopbarFab.svelte';
 	import MatecuTopbarHeaderColumn from '../lib/components/MatecuTopbarHeaderColumn.svelte';
 	import MatecuTopbarHeaderRow from '../lib/components/MatecuTopbarHeaderRow.svelte';
 	import MatecuTopbarLayout from '../lib/components/MatecuTopbarLayout.svelte';
@@ -32,6 +33,9 @@
 			<MatecuTopbarHeaderColumn slot="left-column">
 				<MatecuTopbarAction>A</MatecuTopbarAction>
 				<MatecuTopbarAction>B</MatecuTopbarAction>
+				<MatecuTopbarFab movileStyle={true}
+					><button type="button" class="fabbtn">+</button></MatecuTopbarFab
+				>
 				<MatecuTopbarTitle>El titulo de la página puede estar en dos lineas</MatecuTopbarTitle>
 			</MatecuTopbarHeaderColumn>
 			<MatecuTopbarHeaderColumn slot="right-column">
@@ -130,4 +134,11 @@
 </div>
 
 <style lang="scss">
+	.fabbtn {
+		border: none;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		background-color: pink;
+	}
 </style>

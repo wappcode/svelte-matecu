@@ -59,6 +59,7 @@
 
 <style lang="scss">
 	.matecu-topbar-layout {
+		position: relative;
 		box-sizing: border-box;
 		* {
 			box-sizing: border-box;
