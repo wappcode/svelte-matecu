@@ -1,16 +1,5 @@
 <script lang="ts">
 	export let display = true;
-	export const scrollTop = () => {
-		console.log('scrolling matecu-topbar-body');
-		const element: HTMLElement | null = document.querySelector('.matecu-topbar-body');
-		if (!element) {
-			return;
-		}
-		element.scroll({
-			top: 0,
-			behavior: 'smooth'
-		});
-	};
 </script>
 
 {#if display}

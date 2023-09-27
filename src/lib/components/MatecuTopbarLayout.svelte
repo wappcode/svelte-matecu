@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-
+	let bodyElement: HTMLElement | null | undefined;
 	export let prominent = false;
 	let scrolled = false;
 	export const scrollTop = () => {
-		const element: HTMLElement | null = document.querySelector('.matecu-topbar-layout__body');
-		if (!element) {
+		if (!bodyElement) {
 			return;
 		}
-		element.scroll({
+		bodyElement.scroll({
 			top: 0,
 			behavior: 'smooth'
 		});
@@ -26,21 +25,19 @@
 		scrolled = scrollPosition > 20;
 	};
 	onMount(() => {
-		const scrollabe: HTMLElement | null = document.querySelector('.matecu-topbar-layout__body');
-		if (!scrollabe) {
+		if (!bodyElement) {
 			return;
 		}
-		scrollabe.addEventListener('scroll', (ev) => {
-			spyScroll(scrollabe);
+		bodyElement.addEventListener('scroll', (ev) => {
+			spyScroll(bodyElement!);
 		});
 	});
 
 	onDestroy(() => {
-		const scrollabe: HTMLElement | null = document.querySelector('.matecu-topbar-layout__body');
-		if (!scrollabe) {
+		if (!bodyElement) {
 			return;
 		}
-		scrollabe.removeEventListener('scroll', () => {});
+		bodyElement.removeEventListener('scroll', () => {});
 	});
 </script>
 
@@ -53,7 +50,7 @@
 			<slot name="header-row-second" />
 		{/if}
 	</div>
-	<div class="matecu-topbar-layout__body">
+	<div class="matecu-topbar-layout__body" bind:this={bodyElement}>
 		{#if $$slots['body']}
 			<slot name="body" />
 		{/if}
