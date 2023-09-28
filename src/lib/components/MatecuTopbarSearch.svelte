@@ -80,7 +80,7 @@
 		input {
 			width: var(--mtb-search-width, 200px);
 			min-width: var(--mtb-search-width, 200px);
-			height: var(--mtb-search-heigth, 40px);
+			height: var(--mtb-search-height, 40px);
 			padding: var(--mtb-search-pading, 3px 35px);
 			border-radius: 4px;
 			border: 1px solid;

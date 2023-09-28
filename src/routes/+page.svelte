@@ -27,7 +27,7 @@
 	<!-- <div class="matecu-topbar-layout">a</div> -->
 	<MatecuTopbarLayout
 		--mtb-height="500px"
-		--mtb-width="500px"
+		--mtb-width="100%"
 		--mtb-border="1px solid blue"
 		{prominent}
 		bind:scrollTop

@@ -72,7 +72,7 @@
 		margin: var(--mtb-margin, 0px);
 		padding: 0px;
 		width: var(--mtb-width, 100%);
-		height: var(--mtb-heigth, 100vh);
+		height: var(--mtb-height, 100vh);
 		overflow: hidden;
 
 		&__bar {
