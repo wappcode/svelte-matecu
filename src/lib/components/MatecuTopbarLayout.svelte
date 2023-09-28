@@ -44,11 +44,11 @@
 
 <div class="matecu-topbar-layout" class:prominent class:scrolled bind:this={layoutElement}>
 	<div class="matecu-topbar-layout__bar">
-		{#if $$slots['header-row-first']}
-			<slot name="header-row-first" />
+		{#if $$slots['first-row']}
+			<slot name="first-row" />
 		{/if}
-		{#if $$slots['header-row-second']}
-			<slot name="header-row-second" />
+		{#if $$slots['second-row']}
+			<slot name="second-row" />
 		{/if}
 	</div>
 	<div class="matecu-topbar-layout__body" bind:this={bodyElement}>

@@ -1,58 +1,89 @@
-# create-svelte
+# Svelte-Matecu
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Libreria con complementos y utilidades para el desarrollo de aps
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+## Instalar
 
-## Creating a project
+    npm install svelte-matecu
 
-If you're seeing this, you've probably already done this step. Congrats!
+Agregar estilos para la fuente de los iconos
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+```
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 ```
 
-## Developing
+## MatecuTopbarLayout
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Crea la estructura para una página que contiene un topbar en posición fija a la que se le pueden agregar botones de acciones, titulo y buscador.
 
-```bash
-npm run dev
+El contenido de la página tiene una función que se puede llamar para realizar un desplazamiento hacia arriba.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+## Ejemplo básico
+
+```
+<script lang="ts">
+
+    // imports ...
+    let scrollTop: () => void;
+    let mobileStyle = false;
+
+    // Detecta cambios en el input de búsqueda
+	const handleSearching = (event: any) => {
+		console.log('event searching', event);
+	};
+    // Detecta cambios al redimencionar el compontente principal
+	const handleResize = (event: any) => {
+		mobileStyle = event.detail.width < 768;
+	};
+</script>
+<MatecuTopbarLayout
+		bind:scrollTop
+		on:resize={handleResize}
+	>
+		<MatecuTopbarHeaderRow slot="first-row">
+			<MatecuTopbarHeaderColumn slot="left-column">
+				<MatecuTopbarAction>NAV_MENU</MatecuTopbarAction>
+				<MatecuTopbarFab {mobileStyle}>
+                    <button type="button" class="fabbtn">+</button>
+                </MatecuTopbarFab>
+				<MatecuTopbarTitle>
+                    El titulo de la página
+                </MatecuTopbarTitle>
+			</MatecuTopbarHeaderColumn>
+			<MatecuTopbarHeaderColumn slot="right-column">
+				<MatecuTopbarSearch
+					{mobileStyle}
+					on:valueChanges={handleSearching}
+					placeholder="Buscando..."
+				/>
+				<MatecuTopbarAction>PAGE_MENU</MatecuTopbarAction>
+			</MatecuTopbarHeaderColumn>
+		</MatecuTopbarHeaderRow>
+
+
+		<MatecuTopbarBody slot="body">
+			Contenido de la página ...
+		</MatecuTopbarBody>
+	</MatecuTopbarLayout>
+    <style >
+	    .fabbtn {
+		    border: none;
+		    width: 45px;
+		    height: 45px;
+		    border-radius: 50%;
+		    background-color: pink;
+	    }
+    </style>
+
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Componentes
 
-## Building
-
-To build your library:
-
-```bash
-npm run package
-```
-
-To create a production version of your showcase app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+MatecuTopbarLayout: Componente principal
+MatecuTopbarHeaderRow: Crea una fila para agregar contenido en el encabezado, pueden agregarse hasta 2 filas y es necesario agregar el nombre del slot (first-row, second-row)
+MatecuTopbarHeaderColumn
+MatecuTopbarAction
+MatecuTopbarFab
+MatecuTopbarSearch
+MatecuTopbarTitle
+MatecuTopbarBody

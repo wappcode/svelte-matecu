@@ -33,7 +33,7 @@
 		bind:scrollTop
 		on:resize={handleResize}
 	>
-		<MatecuTopbarHeaderRow slot="header-row-first">
+		<MatecuTopbarHeaderRow slot="first-row">
 			<MatecuTopbarHeaderColumn slot="left-column">
 				<MatecuTopbarAction>A</MatecuTopbarAction>
 				<MatecuTopbarAction>B</MatecuTopbarAction>
@@ -53,7 +53,7 @@
 			</MatecuTopbarHeaderColumn>
 		</MatecuTopbarHeaderRow>
 
-		<MatecuTopbarHeaderRow slot="header-row-second" display={dobuleRow}>
+		<MatecuTopbarHeaderRow slot="second-row" display={dobuleRow}>
 			<MatecuTopbarHeaderColumn slot="left-column">
 				<MatecuTopbarAction>E</MatecuTopbarAction>
 				<MatecuTopbarAction>F</MatecuTopbarAction>
