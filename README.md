@@ -21,59 +21,69 @@ El contenido de la página tiene una función que se puede llamar para realizar 
 ## Ejemplo básico
 
 ```
-<script lang="ts">
+<script>
+	// @ts-nocheck
 
-    // imports ...
-    let scrollTop: () => void;
-    let mobileStyle = false;
+	import {
+		MatecuTopbarAction,
+		MatecuTopbarBody,
+		MatecuTopbarFab,
+		MatecuTopbarHeaderColumn,
+		MatecuTopbarHeaderRow,
+		MatecuTopbarLayout,
+		MatecuTopbarSearch,
+		MatecuTopbarTitle
+	} from 'svelte-matecu';
 
-    // Detecta cambios en el input de búsqueda
-	const handleSearching = (event: any) => {
+	let scrollTop;
+	let mobileStyle = false;
+
+	const handleSearching = (event) => {
 		console.log('event searching', event);
 	};
-    // Detecta cambios al redimencionar el compontente principal
-	const handleResize = (event: any) => {
+	// Detecta cambios al redimencionar el compontente principal
+	const handleResize = (event) => {
 		mobileStyle = event.detail.width < 768;
 	};
 </script>
-<MatecuTopbarLayout
-		bind:scrollTop
-		on:resize={handleResize}
-	>
-		<MatecuTopbarHeaderRow slot="first-row">
-			<MatecuTopbarHeaderColumn slot="left-column">
-				<MatecuTopbarAction>NAV_MENU</MatecuTopbarAction>
-				<MatecuTopbarFab {mobileStyle}>
-                    <button type="button" class="fabbtn">+</button>
-                </MatecuTopbarFab>
-				<MatecuTopbarTitle>
-                    El titulo de la página
-                </MatecuTopbarTitle>
-			</MatecuTopbarHeaderColumn>
-			<MatecuTopbarHeaderColumn slot="right-column">
-				<MatecuTopbarSearch
-					{mobileStyle}
-					on:valueChanges={handleSearching}
-					placeholder="Buscando..."
-				/>
-				<MatecuTopbarAction>PAGE_MENU</MatecuTopbarAction>
-			</MatecuTopbarHeaderColumn>
-		</MatecuTopbarHeaderRow>
 
+<MatecuTopbarLayout bind:scrollTop on:resize={handleResize}>
+	<MatecuTopbarHeaderRow slot="first-row">
+		<MatecuTopbarHeaderColumn slot="left-column">
+			<MatecuTopbarAction>NAV_MENU</MatecuTopbarAction>
+			<MatecuTopbarFab {mobileStyle}>
+				<button type="button" class="fabbtn">+</button>
+			</MatecuTopbarFab>
+			<MatecuTopbarTitle>El titulo de la página</MatecuTopbarTitle>
+		</MatecuTopbarHeaderColumn>
+		<MatecuTopbarHeaderColumn slot="right-column">
+			<MatecuTopbarSearch
+				{mobileStyle}
+				on:valueChanges={handleSearching}
+				placeholder="Buscando..."
+			/>
+			<MatecuTopbarAction>PAGE_MENU</MatecuTopbarAction>
+		</MatecuTopbarHeaderColumn>
+	</MatecuTopbarHeaderRow>
 
-		<MatecuTopbarBody slot="body">
-			Contenido de la página ...
-		</MatecuTopbarBody>
-	</MatecuTopbarLayout>
-    <style >
-	    .fabbtn {
-		    border: none;
-		    width: 45px;
-		    height: 45px;
-		    border-radius: 50%;
-		    background-color: pink;
-	    }
-    </style>
+	<MatecuTopbarBody slot="body">
+		Contenido de la página... <br />
+		Agregar mas contenido para ver funcionamiento de SrollTop
+
+		<button type="button" on:click={scrollTop}>Scroll Top</button>
+	</MatecuTopbarBody>
+</MatecuTopbarLayout>
+
+<style>
+	.fabbtn {
+		border: none;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		background-color: pink;
+	}
+</style>
+
 
 ```
 
