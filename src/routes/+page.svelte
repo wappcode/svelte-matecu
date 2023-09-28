@@ -33,7 +33,7 @@
 		bind:scrollTop
 		on:resize={handleResize}
 	>
-		<MatecuTopbarHeaderRow slot="first-row">
+		<MatecuTopbarHeaderRow slot="first-row" --mtb-row-max-width="600px">
 			<MatecuTopbarHeaderColumn slot="left-column">
 				<MatecuTopbarAction>A</MatecuTopbarAction>
 				<MatecuTopbarAction>B</MatecuTopbarAction>
@@ -47,7 +47,10 @@
 					{mobileStyle}
 					on:valueChanges={handleSearching}
 					placeholder="Buscando..."
-				/>
+				>
+					<span slot="search-icon">A</span>
+					<span slot="clear-icon">X</span>
+				</MatecuTopbarSearch>
 				<MatecuTopbarAction>C</MatecuTopbarAction>
 				<MatecuTopbarAction>D</MatecuTopbarAction>
 			</MatecuTopbarHeaderColumn>

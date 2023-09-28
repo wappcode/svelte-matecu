@@ -7,6 +7,10 @@
 {/if}
 
 <style lang="scss">
+	:root {
+		--mtb-title-padding: 6px;
+		--mtb-title-margin: 0px;
+	}
 	.matecu-topbar-title {
 		&,
 		* {
@@ -16,5 +20,7 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
+		padding: var(--mtb-title-padding);
+		margin: var(--mtb-title-margin);
 	}
 </style>

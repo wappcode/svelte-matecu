@@ -105,6 +105,12 @@ Componente principal
 
 Crea una fila para agregar contenido en el encabezado, pueden agregarse hasta 2 filas y es necesario agregar el nombre del slot (first-row, second-row)
 
+#### Variables de estilos
+
+- --mtb-row-padding
+- --mtb-row-margin
+- --mtb-row-width
+
 ### MatecuTopbarHeaderColumn
 
 Crea una columna para agregar contenido a una fila del encabezado es necesario agregar el nombre del slot (left-column,right-column)
@@ -113,15 +119,20 @@ Crea una columna para agregar contenido a una fila del encabezado es necesario a
 
 Crea un contenedor para agregar acciones como links o botones preferentemente en formato de iconos
 
+#### Variables de estilos
+
+- --mtb-action-padding
+- --mtb-action-margin
+
 ### MatecuTopbarFab
 
 Crea un contenedor para agregar un boton (FAB)
 
-### Variables de estilos
+#### Variables de estilos
 
---mtb-fab-mobile-bottom-position : Posición relativa a la parte inferior del componente pricipal que se aplica cuando estan activos los estilos para dispositivos móviles.
+- --mtb-fab-mobile-bottom-position : Posición relativa a la parte inferior del componente pricipal que se aplica cuando estan activos los estilos para dispositivos móviles.
 
---mtb-fab-mobile-right-position: Posición relativa a la parte i
+- --mtb-fab-mobile-right-position: Posición relativa a la parte i
 
 #### Propiedades
 
@@ -139,9 +150,18 @@ Crea un campo de texto para hacer búsquedas
 
 - mobileStyle: Valor boolaneo que indica si se ajustan los estilos para dispositivos móviles
 
+#### Iconos
+
+Se pueden reemplazar los iconos por unos personalizados usando los slots "search-icon" y "clear-icon"
+
 ### MatecuTopbarTitle
 
 Crea un contenedor para agregar un título a la página.
+
+#### Variables de estilos
+
+- --mtb-title-padding
+- --mtb-title-margin
 
 ### MatecuTopbarBody
 

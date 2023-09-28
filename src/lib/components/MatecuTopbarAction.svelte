@@ -3,6 +3,11 @@
 </div>
 
 <style lang="scss">
+	:root {
+		--mtb-bar-height: 64px;
+		--mtb-action-padding: 6px;
+		--mtb-action-margin: 0px;
+	}
 	.matecu-topbar-action {
 		&,
 		* {
@@ -12,6 +17,8 @@
 		height: 100%;
 		display: flex;
 		align-items: center;
-		max-height: var(--mtb-bar-height, 64px);
+		max-height: var(--mtb-bar-height);
+		padding: var(--mtb-action-padding);
+		margin: var(--mtb-action-margin);
 	}
 </style>

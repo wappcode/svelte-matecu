@@ -38,14 +38,18 @@
 	</button>
 	<div class="matecu-topbar-search" class:mobile-style={mobileStyle} class:active={activeSearch}>
 		<span class="matecu-topbar-search__icon matecu-topbar-search__icon--search">
-			<span class="material-symbols-outlined"> search </span>
+			<slot name="search-icon">
+				<span class="material-symbols-outlined"> search </span>
+			</slot>
 		</span>
 		{#if showClearButton || mobileStyle}
 			<button
 				class="matecu-topbar-search__icon matecu-topbar-search__icon--clear"
 				on:click={clearSearch}
 			>
-				<span class="material-symbols-outlined"> close </span>
+				<slot name="clear-icon">
+					<span class="material-symbols-outlined"> close </span>
+				</slot>
 			</button>
 		{/if}
 		<input type="text" {placeholder} bind:value={searchValue} on:input={valueChanges} />
