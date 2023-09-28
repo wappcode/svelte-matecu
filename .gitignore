@@ -4,6 +4,7 @@ node_modules
 /dist
 /.svelte-kit
 /package
+*.tgz
 .env
 .env.*
 !.env.example
