@@ -28,11 +28,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		border: 1px solid green;
 		box-sizing: border-box;
 		width: 100%;
 		height: 100%;
-		min-height: var(--bar-height, 64px);
+		min-height: var(--mtb-bar-height, 64px);
 		&__left-column {
 			display: flex;
 			height: 100%;

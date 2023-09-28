@@ -3,7 +3,7 @@
 	export let display = true;
 	export let timeValueChanges = 300; // miliseconds
 	export let placeholder = '';
-	export let movileStyle = false;
+	export let mobileStyle = false;
 
 	let searchValue: string;
 	let timeoutInstance: ReturnType<typeof setTimeout>;
@@ -31,16 +31,16 @@
 {#if display}
 	<button
 		class="matecu-topbar-search-mobile-only"
-		class:movile-style={movileStyle}
+		class:mobile-style={mobileStyle}
 		on:click={toggleActiveSearch}
 	>
 		<span class="material-symbols-outlined"> search </span>
 	</button>
-	<div class="matecu-topbar-search" class:movile-style={movileStyle} class:active={activeSearch}>
+	<div class="matecu-topbar-search" class:mobile-style={mobileStyle} class:active={activeSearch}>
 		<span class="matecu-topbar-search__icon matecu-topbar-search__icon--search">
 			<span class="material-symbols-outlined"> search </span>
 		</span>
-		{#if showClearButton || movileStyle}
+		{#if showClearButton || mobileStyle}
 			<button
 				class="matecu-topbar-search__icon matecu-topbar-search__icon--clear"
 				on:click={clearSearch}
@@ -53,15 +53,15 @@
 {/if}
 
 <style lang="scss">
-	$search-text-color: #fff;
+	$search-text-color: var(--mtb-bar-color, #fff);
 
 	.matecu-topbar-search-mobile-only {
 		display: none;
 		border: none;
 		background: none;
 		cursor: pointer;
-		color: var(--search-text-color, $search-text-color);
-		&.movile-style {
+		color: var(--mtb-search-color, $search-text-color);
+		&.mobile-style {
 			display: block;
 		}
 	}
@@ -74,26 +74,26 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		color: var(--search-text-color, $search-text-color);
+		color: var(--mtb-search-color, $search-text-color);
 		max-height: var(--bar-height, 64px);
 
 		input {
-			width: var(--search-width, 200px);
-			min-width: var(--search-width, 200px);
-			height: var(--search-heigth, 40px);
-			padding: var(--search-pading, 3px 35px);
+			width: var(--mtb-search-width, 200px);
+			min-width: var(--mtb-search-width, 200px);
+			height: var(--mtb-search-heigth, 40px);
+			padding: var(--mtb-search-pading, 3px 35px);
 			border-radius: 4px;
 			border: 1px solid;
-			border: var(--search-border, none);
+			border: var(--mtb-search-border, none);
 			background-color: var(--search-background-color, #ffffff4d);
 			color: currentColor;
 			transition: all 300ms ease-in-out;
 			&::placeholder {
-				color: var(--search-text-color, $search-text-color);
+				color: var(--mtb-search-color, $search-text-color);
 				opacity: 1; /* Firefox */
 			}
 			&:focus {
-				min-width: var(--search-width-large, 290px);
+				min-width: var(--mtb-search-width-large, 290px);
 			}
 		}
 
@@ -114,17 +114,18 @@
 			}
 		}
 	}
-	.movile-style.matecu-topbar-search {
+	.mobile-style.matecu-topbar-search {
 		position: absolute;
 		top: 0px;
 		left: 0px;
 		right: 0px;
-		border-bottom: 1px solid #333; // TODO: agregar variable para estilos
+		border-bottom: 1px solid;
+		border-bottom-color: var(--mtb-search-border-bottom-color, #ededed);
 		z-index: 3;
 		padding: 0px;
 		margin: 0px;
 		height: 64px;
-		color: #333;
+		color: var(--mtb-search-mobile-color, #000);
 		transform: translateY(-120%);
 		transition: all 300ms ease-in-out;
 		&.active {
@@ -136,7 +137,7 @@
 			width: 100%;
 			border-radius: 0px;
 			&::placeholder {
-				color: #333;
+				color: var(--mtb-search-mobile-color, #000);
 			}
 		}
 	}

@@ -1,10 +1,10 @@
 <script lang="ts">
 	export let display = true;
-	export let movileStyle = false;
+	export let mobileStyle = false;
 </script>
 
 {#if display}
-	<div class="matecu-topbar-fab" class:movile-style={movileStyle}>
+	<div class="matecu-topbar-fab" class:movile-style={mobileStyle}>
 		<slot />
 	</div>
 {/if}
@@ -23,8 +23,8 @@
 		&.movile-style {
 			position: absolute;
 			transform: translate(0);
-			bottom: 20px;
-			right: 20px;
+			bottom: var(--mtb-fab-mobile-bottom-position, 20px);
+			right: var(--mtb-fab-mobile-right-position, 20px);
 		}
 	}
 </style>

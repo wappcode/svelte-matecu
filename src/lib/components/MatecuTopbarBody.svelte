@@ -12,9 +12,9 @@
 			box-sizing: border-box;
 			outline: none;
 		}
-		padding: var(--body-padding, 30px);
-		background-color: var(--body-background, auto);
+		padding: var(--mtb-body-padding, 30px);
+		background-color: var(--mtb-body-background, auto);
 		overflow-y: auto;
-		padding-bottom: var(--body-padding-button, 60px);
+		padding-bottom: var(--mtb-body-padding-button, 60px);
 	}
 </style>

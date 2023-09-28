@@ -11,13 +11,13 @@
 	let scrollTop: () => void;
 	let dobuleRow = false;
 	let prominent = false;
-	let movileStyle = false;
+	let mobileStyle = false;
 
 	const handleSearching = (event: any) => {
 		console.log('event searching', event);
 	};
 	const handleResize = (event: any) => {
-		movileStyle = event.detail.width < 768;
+		mobileStyle = event.detail.width < 768;
 	};
 </script>
 
@@ -26,10 +26,9 @@
 	<button on:click={scrollTop}>Scroll top</button>
 	<!-- <div class="matecu-topbar-layout">a</div> -->
 	<MatecuTopbarLayout
-		--heigth="500px"
-		--width="100%"
-		--primary-color="red"
-		--border="1px solid blue"
+		--mtb-height="500px"
+		--mtb-width="500px"
+		--mtb-border="1px solid blue"
 		{prominent}
 		bind:scrollTop
 		on:resize={handleResize}
@@ -38,14 +37,14 @@
 			<MatecuTopbarHeaderColumn slot="left-column">
 				<MatecuTopbarAction>A</MatecuTopbarAction>
 				<MatecuTopbarAction>B</MatecuTopbarAction>
-				<MatecuTopbarFab {movileStyle}
+				<MatecuTopbarFab {mobileStyle}
 					><button type="button" class="fabbtn">+</button></MatecuTopbarFab
 				>
 				<MatecuTopbarTitle>El titulo de la página puede estar en dos lineas</MatecuTopbarTitle>
 			</MatecuTopbarHeaderColumn>
 			<MatecuTopbarHeaderColumn slot="right-column">
 				<MatecuTopbarSearch
-					{movileStyle}
+					{mobileStyle}
 					on:valueChanges={handleSearching}
 					placeholder="Buscando..."
 				/>
