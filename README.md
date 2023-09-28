@@ -79,11 +79,76 @@ El contenido de la página tiene una función que se puede llamar para realizar 
 
 ## Componentes
 
-MatecuTopbarLayout: Componente principal
-MatecuTopbarHeaderRow: Crea una fila para agregar contenido en el encabezado, pueden agregarse hasta 2 filas y es necesario agregar el nombre del slot (first-row, second-row)
-MatecuTopbarHeaderColumn
-MatecuTopbarAction
-MatecuTopbarFab
-MatecuTopbarSearch
-MatecuTopbarTitle
-MatecuTopbarBody
+### MatecuTopbarLayout:
+
+Componente principal
+
+#### Variables de estilos
+
+- --mtb-border : Borde
+- --mtb-margin : Margen
+- --mtb-width : Ancho
+- --mtb-height : Alto
+- --mtb-primary-color : Color principal (Color de la barra)
+- --mtb-bar-height : Alto de la barra
+- --mtb-bar-prominent-height : Alto de la barra en modo prominente
+
+### Properties
+
+- prominent : Valor boolean que indica si la barra es prominente
+
+### Binds
+
+- scrollTop : Funcion que se puede llamar desde el componente padre y hace scroll del contenido hacia la parte superior
+
+### MatecuTopbarHeaderRow
+
+Crea una fila para agregar contenido en el encabezado, pueden agregarse hasta 2 filas y es necesario agregar el nombre del slot (first-row, second-row)
+
+### MatecuTopbarHeaderColumn
+
+Crea una columna para agregar contenido a una fila del encabezado es necesario agregar el nombre del slot (left-column,right-column)
+
+### MatecuTopbarAction
+
+Crea un contenedor para agregar acciones como links o botones preferentemente en formato de iconos
+
+### MatecuTopbarFab
+
+Crea un contenedor para agregar un boton (FAB)
+
+### Variables de estilos
+
+--mtb-fab-mobile-bottom-position : Posición relativa a la parte inferior del componente pricipal que se aplica cuando estan activos los estilos para dispositivos móviles.
+
+--mtb-fab-mobile-right-position: Posición relativa a la parte i
+
+#### Propiedades
+
+- mobileStyle: Valor boolaneo que indica si se ajustan los estilos para dispositivos móviles
+
+### MatecuTopbarSearch
+
+Crea un campo de texto para hacer búsquedas
+
+#### Eventos
+
+- valueChanges: Emite un evento con el valor del texto ingresado en el campo de búsqueda
+
+#### Propiedades
+
+- mobileStyle: Valor boolaneo que indica si se ajustan los estilos para dispositivos móviles
+
+### MatecuTopbarTitle
+
+Crea un contenedor para agregar un título a la página.
+
+### MatecuTopbarBody
+
+Crea un contenedor para agregar el contenido de la página
+
+#### Variables de estilos
+
+--mtb-body-padding: Padding para el contenido
+--mtb-body-background: Fondo del contenido;
+--mtb-body-padding-button: Padding inferior (Es utilizado para asignar un espacio al Botón principal (FAB) cuando tiene asignados los estilos para dispositivos móviles)
