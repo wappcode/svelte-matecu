@@ -4,13 +4,13 @@
 
 {#if display}
 	<div class="matecu-topbar-header-row">
-		<div class="matecu-topbar-header-row__left-column">
+		<div class="matecu-topbar-header-row__column matecu-topbar-header-row__column--left">
 			{#if $$slots['left-column']}
 				<slot name="left-column" />
 			{/if}
 		</div>
 
-		<div class="matecu-topbar-header-row__right-column">
+		<div class="matecu-topbar-header-row__column matecu-topbar-header-row__column--right">
 			{#if $$slots['right-column']}
 				<slot name="right-column" />
 			{/if}
@@ -42,14 +42,13 @@
 		min-height: var(--mtb-bar-height, 64px);
 		max-width: var(--mtb-row-max-width);
 		min-width: var(--mtb-row-min-width);
-		&__left-column {
+		&__column {
 			display: flex;
 			height: 100%;
-		}
-		&__right-column {
-			display: flex;
-			height: 100%;
-			margin-left: auto;
+			align-items: center;
+			&--right {
+				margin-left: auto;
+			}
 		}
 	}
 </style>
