@@ -3,6 +3,9 @@
 	import { createEventDispatcher } from 'svelte';
 	let layoutElement: HTMLElement | null | undefined;
 	let bodyElement: HTMLElement | null | undefined;
+	export let mobileStyle = false;
+
+	export let mobileWidth = 768;
 	export let prominent = false;
 	let scrolled = false;
 	export const scrollTop = () => {
@@ -29,7 +32,12 @@
 	};
 	onMount(() => {
 		const resizeObserver = new ResizeObserver(() => {
-			dispatchResize('resize', { width: layoutElement?.clientWidth });
+			const width = layoutElement?.clientWidth;
+			if (!width) {
+				return;
+			}
+			mobileStyle = width <= mobileWidth;
+			dispatchResize('resize', { width });
 		});
 		bodyElement!.addEventListener('scroll', (ev) => {
 			spyScroll(bodyElement!);

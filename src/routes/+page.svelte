@@ -17,20 +17,21 @@
 		console.log('event searching', event);
 	};
 	const handleResize = (event: any) => {
-		mobileStyle = event.detail.width < 768;
+		console.log('event resizing', event);
 	};
 </script>
 
 <div>
 	<h1>Matecu Topbar Layout</h1>
 	<button on:click={scrollTop}>Scroll top</button>
-	<!-- <div class="matecu-topbar-layout">a</div> -->
 	<MatecuTopbarLayout
 		--mtb-height="500px"
 		--mtb-width="100%"
 		--mtb-border="1px solid blue"
 		{prominent}
+		mobileWidth={768}
 		bind:scrollTop
+		bind:mobileStyle
 		on:resize={handleResize}
 	>
 		<MatecuTopbarHeaderRow slot="first-row" --mtb-row-max-width="600px">

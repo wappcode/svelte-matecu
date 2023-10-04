@@ -43,11 +43,11 @@ El contenido de la página tiene una función que se puede llamar para realizar 
 	};
 	// Detecta cambios al redimencionar el compontente principal
 	const handleResize = (event) => {
-		mobileStyle = event.detail.width < 768;
+		console.log('event resizing', event);
 	};
 </script>
 
-<MatecuTopbarLayout bind:scrollTop on:resize={handleResize}>
+<MatecuTopbarLayout bind:scrollTop on:resize={handleResize}  bind:mobileStyle>
 	<MatecuTopbarHeaderRow slot="first-row">
 		<MatecuTopbarHeaderColumn slot="left-column">
 			<MatecuTopbarAction>NAV_MENU</MatecuTopbarAction>
@@ -106,10 +106,12 @@ Componente principal
 ### Properties
 
 - prominent : Valor boolean que indica si la barra es prominente
+- mobileWidth: Valor numérico que indica el ancho máximo que debe considerarse para aplicar estilos para dispositivos móviles
 
 ### Binds
 
 - scrollTop : Funcion que se puede llamar desde el componente padre y hace scroll del contenido hacia la parte superior
+- mobileStyle: Propiedad que se actualiza cuando se redimenciona el componente y se calcula utilizando el valor de mobileWidth
 
 ### MatecuTopbarHeaderRow
 
