@@ -12,6 +12,7 @@
 	let dobuleRow = false;
 	let prominent = false;
 	let mobileStyle = false;
+	let searchValue = 'Búsqueda inicial';
 
 	const handleSearching = (event: any) => {
 		console.log('event searching', event);
@@ -45,6 +46,7 @@
 			</MatecuTopbarHeaderColumn>
 			<MatecuTopbarHeaderColumn slot="right-column">
 				<MatecuTopbarSearch
+					bind:value={searchValue}
 					{mobileStyle}
 					on:valueChanges={handleSearching}
 					placeholder="Buscando..."
@@ -64,6 +66,7 @@
 			</MatecuTopbarHeaderColumn>
 		</MatecuTopbarHeaderRow>
 		<MatecuTopbarBody slot="body">
+			{searchValue}
 			<div><label><input type="checkbox" bind:checked={dobuleRow} /> Dos filas</label></div>
 			<div><label><input type="checkbox" bind:checked={prominent} /> Prominente</label></div>
 			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate incidunt architecto unde aliquam.

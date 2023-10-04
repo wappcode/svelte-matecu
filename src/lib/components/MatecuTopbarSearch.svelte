@@ -5,10 +5,10 @@
 	export let placeholder = '';
 	export let mobileStyle = false;
 
-	let searchValue: string;
+	export let value: string = '';
 	let timeoutInstance: ReturnType<typeof setTimeout>;
 	let activeSearch = false;
-	$: showClearButton = searchValue?.length;
+	$: showClearButton = value?.length;
 
 	const dispatch = createEventDispatcher();
 	const valueChanges = () => {
@@ -16,11 +16,11 @@
 			clearTimeout(timeoutInstance);
 		}
 		timeoutInstance = setTimeout(() => {
-			dispatch('valueChanges', { value: searchValue });
+			dispatch('valueChanges', { value: value });
 		}, timeValueChanges);
 	};
 	const clearSearch = () => {
-		searchValue = '';
+		value = '';
 		activeSearch = false;
 	};
 	const toggleActiveSearch = () => {
@@ -54,7 +54,7 @@
 				</slot>
 			</button>
 		{/if}
-		<input type="text" {placeholder} bind:value={searchValue} on:input={valueChanges} />
+		<input type="text" {placeholder} bind:value on:input={valueChanges} />
 	</div>
 {/if}
 
