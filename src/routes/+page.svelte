@@ -49,7 +49,7 @@
 					on:valueChanges={handleSearching}
 					placeholder="Buscando..."
 				>
-					<span slot="search-icon">A</span>
+					<span slot="search-icon">B</span>
 					<span slot="clear-icon">X</span>
 				</MatecuTopbarSearch>
 				<MatecuTopbarAction>C</MatecuTopbarAction>

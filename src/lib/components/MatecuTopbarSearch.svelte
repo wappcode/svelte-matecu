@@ -34,7 +34,9 @@
 		class:mobile-style={mobileStyle}
 		on:click={toggleActiveSearch}
 	>
-		<span class="material-symbols-outlined"> search </span>
+		<slot name="search-icon">
+			<span class="material-symbols-outlined"> search </span>
+		</slot>
 	</button>
 	<div class="matecu-topbar-search" class:mobile-style={mobileStyle} class:active={activeSearch}>
 		<span class="matecu-topbar-search__icon matecu-topbar-search__icon--search">
