@@ -8,7 +8,7 @@
 	export let value: string = '';
 	let timeoutInstance: ReturnType<typeof setTimeout>;
 	let activeMobileSearch = false;
-	$: showClearButton = value?.length;
+	$: hasValue = value?.length;
 
 	const dispatch = createEventDispatcher();
 	const valueChanges = () => {
@@ -48,7 +48,7 @@
 				<span class="material-symbols-outlined"> search </span>
 			</slot>
 		</span>
-		{#if showClearButton || mobileStyle}
+		{#if hasValue || mobileStyle}
 			<button
 				class="matecu-topbar-search__icon matecu-topbar-search__icon--clear"
 				on:click={clearSearch}
