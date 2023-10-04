@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	export let display = true;
-	export let timeValueChanges = 300; // miliseconds
+	export let delyValueChanges = 300; // miliseconds
 	export let placeholder = '';
 	export let mobileStyle = false;
 
 	export let value: string = '';
 	let timeoutInstance: ReturnType<typeof setTimeout>;
-	let activeSearch = false;
+	let activeMobileSearch = false;
 	$: showClearButton = value?.length;
 
 	const dispatch = createEventDispatcher();
@@ -17,14 +17,14 @@
 		}
 		timeoutInstance = setTimeout(() => {
 			dispatch('valueChanges', { value: value });
-		}, timeValueChanges);
+		}, delyValueChanges);
 	};
 	const clearSearch = () => {
 		value = '';
-		activeSearch = false;
+		activeMobileSearch = false;
 	};
 	const toggleActiveSearch = () => {
-		activeSearch = !activeSearch;
+		activeMobileSearch = !activeMobileSearch;
 	};
 </script>
 
@@ -38,7 +38,11 @@
 			<span class="material-symbols-outlined"> search </span>
 		</slot>
 	</button>
-	<div class="matecu-topbar-search" class:mobile-style={mobileStyle} class:active={activeSearch}>
+	<div
+		class="matecu-topbar-search"
+		class:mobile-style={mobileStyle}
+		class:active-mobile={activeMobileSearch}
+	>
 		<span class="matecu-topbar-search__icon matecu-topbar-search__icon--search">
 			<slot name="search-icon">
 				<span class="material-symbols-outlined"> search </span>
@@ -134,7 +138,7 @@
 		color: var(--mtb-search-mobile-color, #000);
 		transform: translateY(-120%);
 		transition: all 300ms ease-in-out;
-		&.active {
+		&.active-mobile {
 			transform: translateY(0);
 		}
 		input {
