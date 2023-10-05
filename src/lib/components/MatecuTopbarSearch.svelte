@@ -81,6 +81,7 @@
 			box-sizing: border-box;
 			outline: none;
 		}
+		margin: var(--mtb-search-margin, 10px);
 		position: relative;
 		display: flex;
 		align-items: center;

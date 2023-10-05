@@ -17,6 +17,7 @@
 			box-sizing: border-box;
 			outline: none;
 		}
+		font-weight: bold;
 		display: flex;
 		height: 100%;
 		align-items: center;
