@@ -4,7 +4,7 @@
 </script>
 
 {#if display}
-	<div class="matecu-topbar-fab" class:movile-style={mobileStyle}>
+	<div class="matecu-topbar-fab" class:mobile-style={mobileStyle}>
 		<slot />
 	</div>
 {/if}
@@ -20,7 +20,7 @@
 		align-items: flex-start;
 		transform: translateY(50%);
 		transition: all 300ms ease-in-out;
-		&.movile-style {
+		&.mobile-style {
 			position: absolute;
 			transform: translate(0);
 			bottom: var(--mtb-fab-mobile-bottom-position, 20px);

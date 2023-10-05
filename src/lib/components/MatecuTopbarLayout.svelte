@@ -23,8 +23,8 @@
 			return;
 		}
 		const maxScrollHeight = scrollabe.scrollHeight;
-		const screenHeight = screen.availHeight;
-		if (screenHeight > maxScrollHeight) {
+		const scrollableHeight = scrollabe.clientHeight;
+		if (scrollableHeight > maxScrollHeight) {
 			return;
 		}
 		const scrollPosition = scrollabe.scrollTop;
