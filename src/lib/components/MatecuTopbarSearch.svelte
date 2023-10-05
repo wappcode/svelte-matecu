@@ -23,7 +23,7 @@
 		value = '';
 		activeMobileSearch = false;
 	};
-	const toggleActiveSearch = () => {
+	const toggleActiveMobileSearch = () => {
 		activeMobileSearch = !activeMobileSearch;
 	};
 </script>
@@ -32,7 +32,7 @@
 	<button
 		class="matecu-topbar-search-mobile-only"
 		class:mobile-style={mobileStyle}
-		on:click={toggleActiveSearch}
+		on:click={toggleActiveMobileSearch}
 	>
 		<slot name="search-icon">
 			<span class="material-symbols-outlined"> search </span>
@@ -64,6 +64,7 @@
 
 <style lang="scss">
 	$search-text-color: var(--mtb-bar-color, #fff);
+	$mtb-search-margin: var(--mtb-search-margin, 10px);
 
 	.matecu-topbar-search-mobile-only {
 		display: none;
@@ -71,6 +72,7 @@
 		background: none;
 		cursor: pointer;
 		color: var(--mtb-search-color, $search-text-color);
+		margin: $mtb-search-margin;
 		&.mobile-style {
 			display: block;
 		}
@@ -81,7 +83,7 @@
 			box-sizing: border-box;
 			outline: none;
 		}
-		margin: var(--mtb-search-margin, 10px);
+		margin: $mtb-search-margin;
 		position: relative;
 		display: flex;
 		align-items: center;

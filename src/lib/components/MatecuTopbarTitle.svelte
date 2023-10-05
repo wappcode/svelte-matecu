@@ -21,6 +21,7 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
+		align-self: center;
 		padding: var(--mtb-title-padding);
 		margin: var(--mtb-title-margin);
 	}

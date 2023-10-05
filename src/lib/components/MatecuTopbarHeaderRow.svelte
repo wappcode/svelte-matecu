@@ -48,6 +48,7 @@
 			align-items: start;
 			&--right {
 				margin-left: auto;
+				justify-content: flex-end;
 			}
 		}
 	}

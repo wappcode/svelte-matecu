@@ -10,11 +10,12 @@
 {/if}
 
 <style lang="scss">
-	* {
-		box-sizing: border-box;
-		outline: none;
-	}
 	.matecu-topbar-fab {
+		&,
+		* {
+			box-sizing: border-box;
+			outline: none;
+		}
 		display: flex;
 		align-self: flex-end;
 		align-items: flex-start;
