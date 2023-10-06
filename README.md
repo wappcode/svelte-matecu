@@ -111,7 +111,11 @@ Componente principal
 ### Binds
 
 - scrollTop : Funcion que se puede llamar desde el componente padre y hace scroll del contenido hacia la parte superior
-- mobileStyle: Propiedad que se actualiza cuando se redimenciona el componente y se calcula utilizando el valor de mobileWidth
+- mobileStyle: Indica si se deben aplicar estilos para dispositivos móviles
+
+### Events
+
+- resize: Evento que se emite cuando se redimenciona el componente y retorna el nuevo valor del ancho.
 
 ### MatecuTopbarHeaderRow
 
@@ -148,7 +152,8 @@ Crea un contenedor para agregar un boton (FAB)
 
 #### Propiedades
 
-- mobileStyle: Valor boolaneo que indica si se ajustan los estilos para dispositivos móviles
+- mobileStyle: Valor boolan que indica si se ajustan los estilos para dispositivos móviles
+- display: Valor boolean que indica si se debe mostrar el componente
 
 ### MatecuTopbarSearch
 
@@ -161,6 +166,9 @@ Crea un campo de texto para hacer búsquedas
 #### Propiedades
 
 - mobileStyle: Valor boolaneo que indica si se ajustan los estilos para dispositivos móviles
+- placeholder: Valor del Placeholder del campo de búsqueda
+- value: Especifica el valor de la búsqueda
+- display: Valor boolean que indica si se debe mostrar el componente
 
 #### Iconos
 
