@@ -8,7 +8,7 @@ Libreria con complementos y utilidades para el desarrollo de aps
 
 Agregar estilos para la fuente de los iconos
 
-```
+```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 ```
 
@@ -20,7 +20,7 @@ El contenido de la página tiene una función que se puede llamar para realizar 
 
 ## Ejemplo básico
 
-```
+```html
 <script>
 	// @ts-nocheck
 
