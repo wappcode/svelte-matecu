@@ -1,5 +1,7 @@
 # Svelte-Matecu
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Libreria con complementos y utilidades para el desarrollo de aps
 
 ## Instalar
@@ -148,7 +150,7 @@ Crea un contenedor para agregar un boton (FAB)
 
 - --mtb-fab-mobile-bottom-position : Posición relativa a la parte inferior del componente pricipal que se aplica cuando estan activos los estilos para dispositivos móviles.
 
-- --mtb-fab-mobile-right-position: Posición relativa a la parte i
+- --mtb-fab-mobile-right-position: Posición relativa a la parte inferior del componente MatecuTopbarLayout
 
 #### Propiedades
 
