@@ -21,6 +21,7 @@
 	};
 	const clearSearch = () => {
 		value = '';
+		dispatch('valueChanges', { value: value });
 		activeMobileSearch = false;
 	};
 	const toggleActiveMobileSearch = () => {
